@@ -2,7 +2,7 @@
 <h3 class="list-group-item-heading">
 	<span class="beer-icon"><img src="<%= beer.icon %>" alt="<%= beer.name %>" /></span>
 	<span class="beer-name"><%= beer.name %></span>
-	<span class="beer-bar">@ <a href="#/browse/bar/<%= beer.bar %>"><%= beer.bar %></a></span>
+	<div class="beer-bar">@ <a href="#/browse/bar/<%= beer.bar %>"><%= beer.bar %></a></div>
 </h3>
 <div class="list-group-item-text" id="<%= beer.id %>">
 	<button onclick="togglewant(this)" type="button" class="btn <%= wantclass %>">Want</button> 
@@ -10,7 +10,7 @@
 	<button onclick="toggleunavailable(this)" type="button" class="btn <%= unavailableclass %>">Unavailable</button> 
 	<input onkeyup="savenotes(this)" onblur="savenotes(this)" onchange="savenotes(this)" type="text" value="<%= notes %>" />
 	
-	<p class="beer-brewery"><a href="#/browse/brewery/<%= beer.brewery %>"><%= beer.brewery %></a></p>
+	<p class="beer-brewery">Brewery: <a href="#/browse/brewery/<%= beer.brewery %>"><%= beer.brewery %></a></p>
 	<p class="beer-abv"><%= beer.abv %></p>
 	<p class="beer-description"><%= beer.description %></p>
 	<p class="beer-style"><a href="#/browse/style/<%= beer.style %>"><%= beer.style %></a></p>
