@@ -10,13 +10,26 @@ $USE_CACHE = false;
 
 <html>
 	<head>
-		<!-- script src="sorttable.js"></script -->
+		<title>Scraping of 2014 GBBF site</title>
+		<style>
+			textarea {
+				width: 40em;
+				max-width: 100%;
+				height: 10em;
+				font-family: monospace;
+			}
+		</style>
 	</head>
 	<body>
 
 <?php
 date_default_timezone_set("Europe/London");
 echo "<p>Last updated: ".date("D jS M Y")."</p>";
+?>
+
+<p>To make this app work, you need the data from
+
+<?php
 
 $beerDB = array();
 $globalCounter = 2000;
@@ -47,7 +60,7 @@ $realAleHeadings = $beerXPath->evaluate("//h3[contains(., 'Real Ales')]/../..//t
 foreach($realAleHeadings as $heading) {
 	$headings[] = trim($heading->textContent);
 }
-HTML::print_r($headings);
+//HTML::print_r($headings);
 
 /*-- GET BEERS --*/
 $realAleRows = $beerXPath->evaluate("//h3[contains(., 'Real Ales')]/../..//table/tbody/form/tr");
@@ -110,7 +123,7 @@ $realAleHeadings = $beerXPath->evaluate("//h3[contains(., 'Foreign Beers')]/../.
 foreach($realAleHeadings as $heading) {
 	$headings[] = trim($heading->textContent);
 }
-HTML::print_r($headings);
+//HTML::print_r($headings);
 
 /*-- GET BEERS --*/
 $realAleRows = $beerXPath->evaluate("//h3[contains(., 'Foreign Beers')]/../..//table/tbody/form/tr");
@@ -173,7 +186,7 @@ $realAleHeadings = $beerXPath->evaluate("//h3[contains(., 'Ciders and Perries')]
 foreach($realAleHeadings as $heading) {
 	$headings[] = trim($heading->textContent);
 }
-HTML::print_r($headings);
+//HTML::print_r($headings);
 
 /*-- GET BEERS --*/
 $realAleRows = $beerXPath->evaluate("//h3[contains(., 'Ciders and Perries')]/../..//table/tbody/form/tr");
@@ -251,7 +264,8 @@ foreach($realAleRows as $r) {
 
 
 /** PRINT ALL BEERS **/
-HTML::print_r(json_encode($beerDB));
+echo HTML::p("Save to ".HTML::span("gbbf2014.json"));
+echo HTML::textarea(json_encode($beerDB));
 //HTML::print_r($beerDB);
 
 
@@ -265,13 +279,17 @@ function getall($key) {
 	return json_encode(array_values($breweries));
 }
 /** GENERATE LIST OF ALL BREWERIES **/
-HTML::print_r(getall('brewery'));
+echo HTML::p("Save to ".HTML::span("brewery.json"));
+echo HTML::textarea(getall('brewery'));
 /** GENERATE LIST OF ALL BARS **/
-HTML::print_r(getall('bar'));
+echo HTML::p("Save to ".HTML::span("bar.json"));
+echo HTML::textarea(getall('bar'));
 /** GENERATE LIST OF ALL COUNTRIES **/
-HTML::print_r(getall('country'));
+echo HTML::p("Save to ".HTML::span("country.json"));
+echo HTML::textarea(getall('country'));
 /** GENERATE LIST OF ALL STYLES **/
-HTML::print_r(getall('style'));
+echo HTML::p("Save to ".HTML::span("style.json"));
+echo HTML::textarea(getall('style'));
 
 exit;
 
