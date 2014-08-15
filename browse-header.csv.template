@@ -1,0 +1,2 @@
+<h2>Browsing by <%= category %></h2>
+<textarea id='drunkcsv'>"id","name","abv","brewery","style","bar","want","drunk","unavailable","notes","description"\n</textarea>

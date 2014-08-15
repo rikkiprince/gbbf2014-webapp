@@ -1,0 +1,1 @@
+"<%= beer.id %>","<%= beer.name %>","<%= beer.abv %>","<%= beer.brewery %>","<%= beer.style %>","<%= beer.bar %>","<%= wantclass %>","<%= drunkclass %>","<%= unavailableclass %>","<%= notes %>","<%= beer.description %>"\n

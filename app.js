@@ -170,6 +170,8 @@ function savenotes(el) {
 
 			context.render('browse-header.template', {category: 'Drunk Beers'}).appendTo(context.$element());
 
+			context.render('link.csv.template').appendTo('#accordion');
+
 			// Display drunk
 			$.each(this.items, function(i, item) {
 				if(localStorage[item.id+'_drunk'] == "true") {
@@ -196,6 +198,38 @@ function savenotes(el) {
 				}
 			});
 
+		});
+
+		this.get('#/drunkcsv', function(context) {
+			context.app.swap('');
+
+			context.render('browse-header.csv.template', {category: 'Drunk CSV'}).appendTo(context.$element());
+
+			// Display drunk
+			$.each(this.items, function(i, item) {
+				if(localStorage[item.id+'_want'] == "true" || localStorage[item.id+'_drunk'] == "true" || localStorage[item.id+'_unavailable'] == "true") {
+					var id = item.id;
+					
+					var wantclass = 'Unwanted';
+					if(localStorage[id+'_want'] == "true")
+						wantclass = 'Wanted';
+
+					var drunkclass = 'Not drunk';
+					if(localStorage[id+'_drunk'] == "true")
+						drunkclass = 'Drunk';
+
+					var unavailableclass = 'Available';
+					if(localStorage[id+'_unavailable'] == "true")
+						unavailableclass = 'Unavailable';
+
+					var notes = localStorage[id+'_notes'];
+					if(notes == undefined) notes = "";
+
+					context.render('beer.csv.template', {beer: item, wantclass: wantclass, drunkclass: drunkclass, unavailableclass: unavailableclass, notes: notes})
+						//.appendTo(context.$element());
+						.appendTo('#drunkcsv');
+				}
+			});
 		});
 
 	});

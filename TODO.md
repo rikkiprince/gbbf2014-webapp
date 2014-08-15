@@ -1,4 +1,3 @@
-[m] Generate CSV of drunk beers to copy off device.
 [m] Display wanted beers at top of bar, brewery, style, country
 
 [s] Text filtering of lists
@@ -9,3 +8,5 @@
 [w] Include sammy directory as a submodule?
 [w] Refactor app.js for repeated beer-listing code.
 [w] Figure out how to properly list two separate lists of beer (e.g. wanted and non-wanted) - sorting does this?
+
+[x] Generate CSV of drunk beers to copy off device.
