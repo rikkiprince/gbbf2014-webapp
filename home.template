@@ -1,0 +1,7 @@
+<div>Browse by:
+<div class="list-group">
+	<a class="list-group-item" href="#/browse/style">Style</a>
+	<a class="list-group-item" class="btn btn-success" href="#/browse/bar">Bar</a>
+	<a class="list-group-item" href="#/browse/brewery">Brewery</a>
+	<a class="list-group-item" href="#/browse/country">Country</a>
+</div>
