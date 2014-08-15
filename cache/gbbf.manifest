@@ -1,0 +1,23 @@
+CACHE MANIFEST
+ 
+# Version: 1.01
+
+# This file is in cache/gbbf.manifest, so all others are in ../
+CACHE:
+../index.html
+../app.js
+../bar.json
+../beer.template
+../brewery.json
+../browse-header.template
+../browse.template
+../country.json
+../end-div.template
+../gbbf2014.json
+../home.template
+../sammy/min/sammy-latest.min.js
+../sammy/plugins/sammy.template.js
+../style.json
+
+NETWORK:
+*
